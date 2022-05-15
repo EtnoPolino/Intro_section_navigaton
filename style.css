@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap');
+
+:root{
+    --almostWhite :  hsl(0, 0%, 98%);
+    --mediumGray : hsl(0, 0%, 41%);
+    --almostBlack : hsl(0, 0%, 8%);
+    --fontSize : 18px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Epilogue', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    width: 100%;
+    font-family: var(--fontSize);
+    background-color: white;
+    display: grid;
+    grid-template-rows: 1fr 9fr;
+}
+
+/*********************** header**********************************/
+header{
+    border: 1px solid black;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 3rem;
+}
+
+header #header-left{
+    border: 1px solid black;
+}
+
+header #header-right{
+    border: 1px solid black;
+}
+
+header #header-left #list-nav,
+header #header-right ul{
+    display: inline-flex;
+    align-items: center;
+    list-style: none;
+    gap: 3rem;
+}
+
+header #header-left ul a,
+header #header-right ul a{
+    text-decoration: none;
+    color: var(--mediumGray);
+}
+
+header #header-left ul a:hover,
+header #header-right ul a:hover{
+    color: var(--almostBlack);
+}
+
+#register-button{
+    background: transparent;
+    color: var(--mediumGray);
+    font-size: var(--fontSize);
+    padding: 8px 20px;
+    border-radius: 10px; 
+    cursor: pointer;
+}
+
+#register-button:hover{
+    color: var(--almostBlack);
+    border-color: var(--almostBlack);
+}
+
+/*********************** main ************************************/
+main{
+    border: 1px solid black;
+    background-color: yellow;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%; 
+    height: 85%; 
+}
+
+main #main-right{
+    margin-right: 5rem;
+    background: url(images/image-hero-desktop.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+main #main-left{
+    margin-left: 11.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main #main-left h1{
+    margin-top: 12rem;
+    font-weight: 700;
+    font-size: 75px;
+}
+
+main #main-left h1 span{
+    display: block;
+}
+
+main #main-left p{
+    margin-top: 0rem;
+    line-height: 1.5;
+    color: var(--mediumGray);
+}
+
+main #main-left p span{
+    display: block;
+}
+
+#main-left button{
+    cursor: pointer;
+    margin-top: 4rem;
+    background: var(--almostBlack);
+    color: var(--almostWhite);
+    font-weight: 500;
+    padding: 15px 25px;
+    border-radius: 10px;
+    border: none;
+    display: block;
+}
+
+#main-left button:hover{
+    background: var(--almostWhite);
+    color: var(--almostBlack);
+}
+
+main #main-left ul{
+    display: inline-flex;
+    list-style: none;
+    margin-top: 4.5rem;
+    gap: 3rem;
+}
+
+
+/************************Add on javascript*****************************************/
+.fa-angle-down{
+    margin-left: 0.1rem;
+}
+
+.sub-menu{
+    display: none;
+}
+
+.active{
+    display: block;
+    position: absolute;
+    background-color: var(--almostWhite);
+    width: 150px;
+    margin-top: 0.5rem;
+    margin-left: -4rem;
+    border: 1px solid var(--almostBlack);
+    border-radius: 10px;
+
+    padding: 1rem;
+}
+
+.active ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.compagny{
+    margin-left: -3rem;
+}
+/**********************************************************************************/
+
+
+
+/***********************************media*****************************************/
+@media all and (max-width:1600px){
+    main #main-left h1{
+        margin-top: 9rem;
+        font-weight: 700;
+        font-size: 75px;
+    }
+}
+
+@media all and (max-width:1366px){
+    main #main-left h1{
+        margin-top: 7rem;
+        font-weight: 700;
+        font-size: 70px;
+    }
+}
+
