@@ -25,20 +25,10 @@ body{
 
 /*********************** header**********************************/
 header{
-    border: 1px solid black;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 3rem;
-}
-
-header #header-left{
-    border: 1px solid black;
-}
-
-header #header-right{
-    border: 1px solid black;
 }
 
 header #header-left #list-nav,
@@ -60,6 +50,46 @@ header #header-right ul a:hover{
     color: var(--almostBlack);
 }
 
+/**************header hover***********/
+.sub-menu{
+    display: none; 
+}
+
+.fa-angle-down{
+    margin-left: 0.1rem;
+}
+
+header #header-left ul li{
+    padding:0.4rem;
+}
+header #header-right ul li{
+    padding:0.4rem;
+}
+
+header #header-left ul li:hover .sub-menu{
+    display: block;
+    position: absolute;
+    background-color: var(--almostWhite);
+    width: 150px;
+    margin-top: 0.5rem;
+    margin-left: -2.5rem;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.sub-menu ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+header #header-left ul li:hover .fa-angle-down{
+    transform: rotate(180deg);
+    transition: all 0.5s ease-in-out;
+}
+/***********end header hover***********/
+
 #register-button{
     background: transparent;
     color: var(--mediumGray);
@@ -76,8 +106,6 @@ header #header-right ul a:hover{
 
 /*********************** main ************************************/
 main{
-    border: 1px solid black;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%; 
@@ -129,11 +157,14 @@ main #main-left p span{
     border-radius: 10px;
     border: none;
     display: block;
+    border: 1px solid var(--almostBlack);
+    transition: all 0.5s ease-in-out;
 }
 
 #main-left button:hover{
     background: var(--almostWhite);
     color: var(--almostBlack);
+    transition: all 0.5s ease-in-out;
 }
 
 main #main-left ul{
@@ -142,54 +173,6 @@ main #main-left ul{
     margin-top: 4.5rem;
     gap: 3rem;
 }
-
-
-/************************Add on javascript*****************************************/
-.fa-angle-down{
-    margin-left: 0.1rem;
-    transition: transform 0.5s ease-in-out;
-}
-
-.sub-menu{
-    display: none;
-}
-
-.sub-menu.active{
-    display: block;
-    position: absolute;
-    background-color: var(--almostWhite);
-    width: 150px;
-    margin-top: 0.5rem;
-    margin-left: -4rem;
-    border: 1px solid var(--almostBlack);
-    border-radius: 10px;
-    padding: 1rem;
-
-    transform: all 0.5s ease-in-out;
-}
-
-.active ul{
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    gap: 1.5rem;
-}
-
-.compagny{
-    margin-left: -3rem;
-}
-/**********************************************************************************/
-.rotate{
-    transform: rotate(180deg);
-}
-
-
-
-
-
-
-
-
 
 
 /***********************************media*****************************************/

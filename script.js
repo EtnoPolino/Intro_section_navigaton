@@ -1,3 +1,4 @@
+/*
 const navChoices = document.querySelectorAll('#header-left ul li a');
 const arrowIcon = document.querySelector('.fa-angle-down');
 const subMenus = document.querySelectorAll('.sub-menu');
@@ -20,7 +21,7 @@ function test(e){
 };
 
 
-
+*/
 
 
 
