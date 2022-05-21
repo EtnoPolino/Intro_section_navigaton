@@ -13,11 +13,28 @@
 
 </head>
 <body>
-    <header>
-        <section id="header-left">
+
+<header id="header">
+
+    <section id="section-logo">
+        <img id="logo" src="images/logo.svg" alt="snap-logo">
+    </section>
+
+    <section id="section-menu">
+        <span><img id="open" src="images/icon-menu.svg" alt="menu-icon"></span>
+    </section>
+
+    <section id="menu-overlay">
+        
+    </section>
+
+    <section id="header-left">
+            <section id="icon-close-menu"> 
+                <img id="close" src="images/icon-close-menu.svg" alt="icon-clone-menu">
+            </section>
+
             <ul id="list-nav">
-                <li><img id="logo" src="images/logo.svg" alt="snap-logo"></li>
-                <li><a href="#">Features <i class="fa-solid fa-angle-down"></i></a>
+                <li class="list-nav-has-children"><a href="#" data-toggle="sub-menu">Features <i id="align-1" class="fa-solid fa-angle-down"></i></a>
                     <div class="sub-menu">
                         <ul>
                             <li><a href="#"><i class="fa-solid fa-table-list"></i> Todo List</a></li>
@@ -27,9 +44,9 @@
                         </ul>
                     </div>
                 </li>
-                <li><a href="#">Compagny <i class="fa-solid fa-angle-down"></i></a>
+                <li class="list-nav-has-children"><a href="#" data-toggle="sub-menu">Compagny <i id="align-2" class="fa-solid fa-angle-down"></i></a>
                     <div class="sub-menu">
-                        <ul class="compagny-list">
+                        <ul>
                             <li><a href="#">History</a></li>
                             <li><a href="#">Our Team</a></li>
                             <li><a href="#">Blog</a></li>
@@ -39,18 +56,24 @@
                 <li><a href="#">Careers</a></li>
                 <li><a href="#">About</a></li>
             </ul>
-        </section>
 
-        <section id="header-right">
-            <ul>
-                <li><a href="#">Login</a></li>
-                <li><button id="register-button">Register</button></li>
-            </ul>
-        </section>
-    </header>
+            <section id="header-right">
+                <ul>
+                    <li><a href="#">Login</a></li>
+                    <li><button id="register-button">Register</button></li>
+                </ul>
+            </section>    
+    </section>
+
+</header>
 
 
-    <main>
+<main>
+
+    <section id="main-right"> 
+        <img src="images/image-hero-mobile.png" alt="hero-mobile">
+    </section>
+    
         <section id="main-left">
             <h1>Make <span>Remote work</span></h1>
 
@@ -60,7 +83,6 @@
                 <button>Learn more</button>
             </div>
             
-
             <ul>
                 <li><img class="logo-main-left" src="images/client-databiz.svg" alt="databiz-logo"></li>
                 <li><img class="logo-main-left" src="images/client-audiophile.svg" alt="audiophile-logo"></li>
@@ -69,9 +91,7 @@
             </ul>
         </section>
 
-        <section id="main-right"> </section>
-
-    </main>
+</main>
 
 </body>
 </html>

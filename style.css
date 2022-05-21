@@ -29,7 +29,29 @@ header{
     justify-content: space-between;
     align-items: center;
     margin: 0 3rem;
+    gap: 3rem;
 }
+
+header #section-menu,
+header #section-logo,
+header #section-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header #header-left{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+}
+
+header #section-menu,
+header #icon-close-menu{
+    display: none;
+}
+
 
 header #header-left #list-nav,
 header #header-right ul{
@@ -51,12 +73,9 @@ header #header-right ul a:hover{
 }
 
 /**************header hover***********/
-.sub-menu{
-    display: none; 
-}
-
 .fa-angle-down{
     margin-left: 0.1rem;
+    pointer-events: none;
 }
 
 header #header-left ul li{
@@ -66,29 +85,57 @@ header #header-right ul li{
     padding:0.4rem;
 }
 
-header #header-left ul li:hover .sub-menu{
-    display: block;
-    position: absolute;
-    background-color: var(--almostWhite);
-    width: 150px;
-    margin-top: 0.5rem;
-    margin-left: -2.5rem;
-    border-radius: 10px;
-    padding: 1rem;
+@media all and (min-width:1001px){
+    .sub-menu{
+        display: none; 
+    }
+
+    header #header-left ul li:hover .sub-menu{
+        display: block;
+        position: absolute;
+        background-color: var(--almostWhite);
+        width: 150px;
+        margin-top: 0.5rem;
+        margin-left: -2.5rem;
+        border-radius: 10px;
+        padding: 1rem;
+    }
+
+    .sub-menu ul{
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        gap: 1.5rem;
+    }
+
+    header #header-left ul li:hover .fa-angle-down{
+        transform: rotate(180deg);
+        transition: all 0.5s ease-in-out;
+    }
 }
 
-.sub-menu ul{
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    gap: 1.5rem;
-}
-
-header #header-left ul li:hover .fa-angle-down{
-    transform: rotate(180deg);
-    transition: all 0.5s ease-in-out;
-}
 /***********end header hover***********/
+
+/*--------------------------------overlay-----------------------------------------*/
+header #menu-overlay{
+    position: fixed;
+    z-index: 999; /* need to be inferior to header #header-left*/
+    background-color: rgba(0, 0, 0, 0.5);
+    height:100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+header #menu-overlay.active{
+    visibility: visible;
+    opacity: 1;
+}
+/*-------------------------------------------------------------------------------*/
 
 #register-button{
     background: transparent;
@@ -112,12 +159,20 @@ main{
     height: 85%; 
 }
 
-main #main-right{
-    margin-right: 5rem;
-    background: url(images/image-hero-desktop.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+@media all and (min-width:1001px){
+    main #main-right{
+        margin-right: 5rem;
+        background: url(images/image-hero-desktop.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        grid-column: 2/3;
+        grid-row: 1;
+    }
+
+    main #main-right img{
+        display: none;
+    }
 }
 
 main #main-left{
@@ -125,6 +180,7 @@ main #main-left{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    grid-column: 1/2;
 }
 
 main #main-left h1{
@@ -168,14 +224,19 @@ main #main-left p span{
 }
 
 main #main-left ul{
-    display: inline-flex;
+    display: flex;
     list-style: none;
     margin-top: 4.5rem;
     gap: 3rem;
 }
 
 
-/***********************************media*****************************************/
+/*----------------------------------------------------------------------------------------------------
+
+                            RESPONSIVE
+                            
+----------------------------------------------------------------------------------------------------*/
+
 @media all and (max-width:1600px){
     main #main-left h1{
         margin-top: 9rem;
@@ -192,3 +253,170 @@ main #main-left ul{
     }
 }
 
+@media all and (max-width:1000px){
+    body{
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    header{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    header #header-left{
+        position: fixed;
+        width: 280px;
+        height: 100%;
+        right: -280px;
+        top: 0;
+        visibility: hidden;
+        overflow-y: auto;
+        background-color: #fff;
+        z-index: 1000;
+        overflow-y: auto;
+        padding: 15px 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: start;
+        gap: 2rem;
+        transition: all 0.5s ease;
+
+        border: 1px solid black;
+    }
+
+    header #header-left.open{
+        visibility: visible;
+        right: 0;
+    }
+
+
+    header #header-left #list-nav,
+    header #header-left #header-right ul{
+        display: flex;
+        flex-direction: column;
+    }
+
+    header #header-left #list-nav{
+        display: block;
+        text-align: start;
+    }
+
+    header #header-left #list-nav li{
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    #align-1{
+        margin-left: 3rem;
+    }
+    #align-2{
+        margin-left: 2.1rem;
+    } 
+
+    header #header-left #header-right{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    header #header-left #header-right ul{
+        gap: 0.5rem;
+    }
+
+    header #icon-close-menu,
+    header #section-menu{
+        display: flex;
+        justify-content: end;
+        width: 100%;
+    }
+
+    header #open,
+    header #close{
+        cursor: pointer;
+    }
+
+    .sub-menu ul{
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin-left: 2rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+        
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    main #main-right{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main #main-right img{
+        display: block;
+        max-width: 100%;
+    }
+
+    main #main-left{
+        margin: 0;
+        gap: 2rem;
+        flex-grow: 1;
+    }
+
+    main #main-left h1{
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+        font-size: 35px;
+        display: flex;
+        justify-content: center;
+    }
+
+    main #main-left p{
+        max-width: 750px;
+        margin: auto;
+        padding:0 1rem 0 1rem;
+        text-align: center;
+    }
+    
+    main #main-left h1 span,
+    main #main-left p span{
+        display: inline;
+    }
+
+    main #main-left #button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 750px;
+        margin: auto;
+    }
+
+    main #main-left #button button{
+        margin-top: 0rem;
+    }
+
+    main #main-left ul{
+        margin: 3rem auto;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    main #main-left ul li img{
+        width: 100%;
+        height: 100%;
+    }
+    
+}
